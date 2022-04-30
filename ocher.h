@@ -9,4 +9,6 @@ typedef struct ochered
 
 void push(ochered**, char);
 char pop(ochered**);
+void clearn(ochered**);
+char take_by_ind(ochered**, int);
 #endif
