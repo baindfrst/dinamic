@@ -69,74 +69,11 @@ int peakQ (node*p, char c) //возврашает номер элемента С
     return index;
 }
 
-char take_by_ind(node* head, int ind)
+void copyQ(node** in, node* from)
 {
-    int val;
-    if (head == NULL)
+    while (from != NULL)
     {
-        fprintf(stderr, " //err - ochered was empty//");
-        exit(-1);
+        pushQ(from->elem, in);
+        from = from->next;
     }
-    for (int i = 0; i != ind; i++)
-    {
-        head = (head)->next;
-    }
-    return (head)->elem;
-}
-
-void del_elem_ind(node** head, int ind)
-{
-    node* sl = *head;
-    node* start = *head;
-    node* del = (*head);
-    if (ind == 0)
-    {
-        *head = (*head)->next;
-        free(del);
-        return;
-    }
-    *head = (*head)->next;
-    for (int i = 1; i != ind; i++)
-    {   
-        sl = *head;
-        *head = (*head)->next;
-        if (*head == NULL && i != ind - 1)
-        {
-            fprintf(stderr, "out of ochered");
-            exit(1);
-        }
-    }
-    sl->next = (*head)->next;
-    del = *head;
-    free(del);
-    *head = start;
-}
-
-void paste_elem_ind(node** head, int ind, char elem_paste)
-{
-    node* sl = *head;
-    node* paste = (node*)malloc(sizeof(node));
-    node* start;
-    start = *head;
-    paste->elem = elem_paste;
-    if (ind == 0)
-    {
-        paste->next = *head;
-        *head = paste;
-        return;
-    }
-    *head = (*head)->next;
-    for (int i = 1; i != ind; i++)
-    {   
-        sl = *head;
-        *head = (*head)->next;
-        if (*head == NULL && i != ind - 1)
-        {
-            fprintf(stderr, "out of ochered");
-            exit(1);
-        }
-    }
-    paste->next = *head;
-    sl->next = paste;
-    *head = start;
 }

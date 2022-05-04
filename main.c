@@ -12,11 +12,9 @@ int main()
     pushQ('e', &head);
     pushQ('f', &head);
     printQ(head);
-    del_elem_ind(&head, 3);
     printf("\n");
-    printQ(head);
-    printf("\n");
-    paste_elem_ind(&head, 5, 'P');
-    printQ(head);
+    node* new = NULL;
+    copyQ(&new, head);
+    printQ(new);
     return 0;
 }
