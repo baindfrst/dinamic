@@ -90,7 +90,7 @@ int emptyQ(node * p) //is the queue empty
     }
 }
 
-int check_copyQ (node*p, node*A) //checking the identity of queues
+int check_copyQ(node*p, node*A) //checking the identity of queues
 {
     node* startp = p;
     node* startA = A;
@@ -98,7 +98,7 @@ int check_copyQ (node*p, node*A) //checking the identity of queues
     {
         if ((p->elem) == (A->elem))
         {
-            Check_copyQ (p->next, A->next);
+            check_copyQ (p->next, A->next);
         }
         else
         {

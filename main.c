@@ -16,5 +16,7 @@ int main()
     node* new = NULL;
     copyQ(&new, head);
     printQ(new);
+    printf("\n");
+    printf("%d\n", check_copyQ(head, new));
     return 0;
 }
