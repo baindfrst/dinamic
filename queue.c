@@ -78,44 +78,6 @@ void copyQ(node** in, node* from)
     }
 }
 
-node* firstQ(node *A) //return a reference to the first element
-{
-    if (!A)
-    {
-        return NULL;
-    }
-    else
-    {
-        return A;
-    }
-}
-
-
-node* lastQ (node *A) //return a reference to the last element
-{
-        while (A->next)
-    {
-        A = A->next;
-    }
-    return A;
-}
-
-
-void sortQ (node *A) //sort by character codes
-{
-    node* last = lastQ(A), * first = firstQ(A);
-    char c;
-    while (first != last)
-    {
-        if (last->elem < first->elem)
-        {
-            c = last->elem;
-            last->elem = first->elem;
-            first->elem = c;
-        }
-        first = first->next;
-    }
-
 int emptyQ(node * p) //is the queue empty
 {
     if (!p)
@@ -146,4 +108,41 @@ int check_copyQ(node*p, node*A) //checking the identity of queues
     p = startp;
     A = startA;
     return 1;
+}
+node* firstQ(node *A) //return a reference to the first element
+{
+    if (!A)
+    {
+        return NULL;
+    }
+    else
+    {
+        return A;
+    }
+}
+
+
+node* lastQ (node *A) //return a reference to the last element
+{
+        while (A->next)
+    {
+        A = A->next;
+    }
+    return A;
+}
+
+void sortQ (node *A) //sort by character codes
+{
+    node* last = lastQ(A), * first = firstQ(A);
+    char c;
+    while (first != last)
+    {
+        if (last->elem < first->elem)
+        {
+            c = last->elem;
+            last->elem = first->elem;
+            first->elem = c;
+        }
+        first = first->next;
+    }
 }

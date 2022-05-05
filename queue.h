@@ -14,11 +14,11 @@ void printQ (node * p);
 void freeQ(node * p);
 int peakQ (node*p, char c);
 void copyQ(node**, node*);
-node* firstQ(node*);
-node* lastQ(node*);
-void sortQ (node*);
-int empty(node*);
+int emptyQ(node*);
 int check_copyQ(node* , node* );
+node* firstQ(node *);
+node* lastQ(node*);
+void sortQ(node*);
 
 #endif
 
