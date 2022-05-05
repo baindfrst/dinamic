@@ -115,4 +115,35 @@ void sortQ (node *A) //sort by character codes
         }
         first = first->next;
     }
+
+int emptyQ(node * p) //is the queue empty
+{
+    if (!p)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+int check_copyQ(node*p, node*A) //checking the identity of queues
+{
+    node* startp = p;
+    node* startA = A;
+    if (p)
+    {
+        if ((p->elem) == (A->elem))
+        {
+            check_copyQ (p->next, A->next);
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    p = startp;
+    A = startA;
+    return 1;
 }

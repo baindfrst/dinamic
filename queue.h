@@ -17,6 +17,8 @@ void copyQ(node**, node*);
 node* firstQ(node*);
 node* lastQ(node*);
 void sortQ (node*);
+int empty(node*);
+int check_copyQ(node* , node* );
 
 #endif
 
