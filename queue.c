@@ -53,21 +53,27 @@ void freeQ(node ** p) //delete the whole queue
     }
 }
 
-int peakQ (node*p, type_of_elem c) //возврашает номер элемента С в очереди 
+int peakQ (node* p, type_of_elem c) //возврашает номер элемента С в очереди 
 {
     int index = 0;
-    node* start = p;
     while (p != NULL)
     {
-         ++index;
-        if ((p->elem) == c )
+        if ((p->elem) == c)
         {
             break;
         }
-        else p = p->next;
+        p = p->next;
+        index++;
     }
-    p = start;
-    return index;
+
+    if (p == NULL)
+    {
+        return -1;
+    }
+    else
+    {
+        return index;
+    }
 }
 
 void copyQ(node** in, node* from)
