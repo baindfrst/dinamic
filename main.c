@@ -5,43 +5,26 @@
 int main()
 {
     node* head = NULL;
-    node* new = NULL;
-    char c;
-    for (int i = 0; i != 6; i++)
-    {
-        scanf("%c", &c);
-        pushQ(c, &head);
-    }
-    pushQ('l', &head);
+    node* head2 = NULL;
+    pushQ('f', &head);
+    pushQ('e', &head);
+    pushQ('d', &head);
+    pushQ('c', &head);
+    pushQ('b', &head);
+    pushQ('a', &head);
+    printf("queue 'head': ");
+    printQ(head);
+    printf("\nqueue 'head' length: %d\n", lenQ(head));
+    copyQ(&head2, head);
+    printf("identity of queues 'head' and 'head2': %d\n", check_copyQ(head, head2));
+    sortQ(head2);
+    printf("element %c: %d in queue 'head'\n", 'f', peakQ(head, 'f'));
+    printf("element %c: %d in queue 'head2'\n", 'f', peakQ(head2, 'f'));
+    freeQ(&head2);
+    printf("is the new queue 'head2' empty: %d\n", emptyQ(head2));
+    popQ(&head);
+    printf("queue 'head' when the first is out:");
     printQ(head);
     printf("\n");
-    for (int i = 0; i != lenQ(head) - 1; i++)
-    {
-        c = popQ(&head);
-        printf("%c ", c);
-    }
-    printf("\n");
-    copyQ(&new, head);
-    sortQ(new);
-    printQ(new);
-    printf("was sorted\n");
-    if (check_copyQ(head, new))
-    {
-        printf("ввод был отсортированный\n");
-    }
-    else
-    {
-        printf("ввод был не отсортированный\n");
-    }
-    freeQ(head);
-    freeQ(new);
-    if (emptyQ(new) && emptyQ(head))
-    {
-        printf("end fine\n");
-    }
-    else
-    {
-        printf("clear data\n");
-    }
     return 0;
 }

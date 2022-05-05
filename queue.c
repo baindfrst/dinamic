@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include "queue.h"
 //A and p are poinyers at the queue
-char popQ(node**A) // first in queue element
+type_of_elem popQ(node**A) // first in queue element
 {
-    char out = (*A)->elem;
+    type_of_elem out = (*A)->elem;
     node* t = (*A);
     *A = (*A)->next;
     free(t);
@@ -22,7 +22,7 @@ int lenQ(node* A)
     return out;
 }
 
-void pushQ (char c, node **A) // add new element
+void pushQ (type_of_elem c, node **A) // add new element
 {
     if (*A == NULL)
     {
@@ -43,16 +43,17 @@ void printQ (node * p) //print the whole queue
     }
 }
 
-void freeQ(node * p) //delete the whole queue
+void freeQ(node ** p) //delete the whole queue
 {
-    if(p)
+    if(*p)
     {
-        freeQ(p->next);
-        free(p);
+        *p = (*p)->next;
+        freeQ(p);
+        free(*p);
     }
 }
 
-int peakQ (node*p, char c) //возврашает номер элемента С в очереди 
+int peakQ (node*p, type_of_elem c) //возврашает номер элемента С в очереди 
 {
     int index = 0;
     node* start = p;
@@ -109,6 +110,7 @@ int check_copyQ(node*p, node*A) //checking the identity of queues
     A = startA;
     return 1;
 }
+
 node* firstQ(node *A) //return a reference to the first element
 {
     if (!A)
@@ -124,7 +126,7 @@ node* firstQ(node *A) //return a reference to the first element
 
 node* lastQ (node *A) //return a reference to the last element
 {
-        while (A->next)
+    while (A->next)
     {
         A = A->next;
     }
@@ -134,7 +136,7 @@ node* lastQ (node *A) //return a reference to the last element
 void sortQ (node *A) //sort by character codes
 {
     node* last = lastQ(A), * first = firstQ(A);
-    char c;
+    type_of_elem c;
     while (first != last)
     {
         if (last->elem < first->elem)
